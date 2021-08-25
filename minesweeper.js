@@ -283,7 +283,6 @@ async function openMine(element) {
     const gameStatus = checkGame(element)
 
     if (gameStatus === 'won') {
-        console.log('won')
         minesweeperConfig.minesCount.innerText = 'You Won!'
 
         minesweeperConfig.board.addEventListener('click', stopPropagation, { capture: true })
@@ -306,7 +305,6 @@ async function openMine(element) {
 
 function checkGame(element) {
     const boardTiles = [...minesweeperConfig.board.children]
-    console.log(boardTiles)
     let status = 'lost'
 
     if (element.dataset.isMine === 'true') {
