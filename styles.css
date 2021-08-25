@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #00848d;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  flex-direction: column;
+  color: white;
+}
+
+.title {
+  margin: 20px;
+}
+
+.subtext {
+  color: #ccc;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 400px;
+}
+
+.levels {
+  width: 150px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.2rem;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.levels > option {
+  font-size: 1rem;
+}
+
+.restart {
+  padding: 2rem;
+  background: url("./restart.svg");
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
+  background-position: center;
+  background-color: #fff;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.restart:active {
+  transform: scale(0.9);
+}
+
+.board {
+  display: inline-grid;
+  padding: 0.07em;
+  margin: 2rem;
+  grid-template-columns: repeat(var(--sizeX), var(--tileSize));
+  grid-template-rows: repeat(var(--sizeY), var(--tileSize));
+  background-color: #fff;
+  border: none;
+}
+
+.board > * {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(68, 81, 255);
+  user-select: none;
+  font-size: var(--fontSize);
+  border: 1px solid lightgrey;
+  transition: transform 100ms ease-in-out;
+}
+
+.board > *:active {
+  transform: scale(0.95);
+}
+
+.board > [data-status="hidden"] {
+  cursor: pointer;
+}
+.board > [data-status="hidden"]:nth-child(even) {
+  /* background-color: #a7d948; */
+  background-color: var(--backgroundColor);
+}
+.board > [data-status="hidden"]:nth-child(odd) {
+  /* background-color: #8ecc39; */
+  background-color: var(--backgroundColor);
+}
+
+.board > [data-status="mine"] {
+  /* background-color: crimson; */
+  background-color: var(--backgroundColor);
+}
+
+.board > [data-status="number"] {
+  /* transform: scale(0); */
+  background-color: #7e7e7e;
+}
+.board > [data-status="number"]:nth-child(even) {
+  background-color: #d7b899;
+}
+.board > [data-status="number"]:nth-child(odd) {
+  background-color: #e5c29f;
+}
+
+.board > [data-status="marked"] {
+  background-color: #178fd4;
+}
+
+.board > *:not([data-status="number"]):hover {
+  opacity: 0.75;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
