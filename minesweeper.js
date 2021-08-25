@@ -113,7 +113,6 @@ function startGame(element) {
 
         const mineElem = minesweeperConfig.board.children[mineSlotNumber]
         addMine(mineElem)
-        // mineElem.style.backgroundColor = 'crimson'
         addNumbersAroundMine(mineSlotNumber)
     }
 
@@ -282,7 +281,6 @@ async function openMine(element) {
     element.dataset.status = element.dataset.isMine === 'true' ? 'mine' : 'number'
 
     const gameStatus = checkGame(element)
-    console.log(gameStatus)
 
     if (gameStatus === 'won') {
         console.log('won')
