@@ -219,7 +219,6 @@ function increaseMineNumber(elemArr) {
     elemArr.forEach(elem => {
         if (elem.dataset.isMine === 'false') {
             elem.dataset.number = parseInt(elem.dataset.number) + 1
-            // elem.style.backgroundColor = 'purple'
         }
     })
 }
